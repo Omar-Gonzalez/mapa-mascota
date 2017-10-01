@@ -1,12 +1,18 @@
-# Heroku Django Starter Template
+# Stray Map 
 
-An utterly fantastic project starter template for Django 1.11.
+![logo](https://github.com/Omar-Gonzalez/straymap/blob/master/straymap/static/img/logos/logo-solid-w200.png)
+
+Open source django base stray pet localization web app 
 
 ## Features
 
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise.
-- Latest Python 3.6 runtime environment. 
+- Upload pictures with geo position of stray pets 
+
+## Tech stack
+
+- [BE] ptyhon-django based application 
+- [Geo position] Open Street Map
+- [FE] jquery mobile + SASS preprocesor
 
 ## How to Use
 
@@ -14,40 +20,19 @@ To use this project, follow these steps:
 
 1. Create your working environment.
 2. Install Django (`$ pip install django`)
-3. Create a new project using this template
 
-## Creating Your Project
+## Road map
 
-Using this template to create a new Django app is easy::
+- TODO
 
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
+## Team
 
-(If this doesn't work on windows, replace `django-admin.py` with `django-admin`)
-
-You can replace ``helloworld`` with your desired project name.
-
-## Deployment to Heroku
-
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
-
-## Using Python 2.7?
-
-Just update `runtime.txt` to `python-2.7.13` (no trailing spaces or newlines!).
-
+- [Omar Gonzlez](https://www.linkedin.com/in/omar-gonzalez-rocha-2199135a/)
 
 ## License: MIT
 
 ## Further Reading
 
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+- [django](https://www.djangoproject.com/)
+- [Open Street Map](https://www.openstreetmap.org)
+- [jquery mobile](https://jquerymobile.com/)
