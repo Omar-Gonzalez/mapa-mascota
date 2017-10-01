@@ -1,0 +1,41 @@
+@import "./settings.scss";
+@import "./theme.scss";
+
+.ui-content{
+    background-color: transparent;
+    font-family: $font-slavo;
+
+    @media (min-width: $mobile-min-width){
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.ui-header{
+    font-family: $font-roboto;
+}
+
+.ui-listview {
+    a {
+        font-family: $font-slavo !important;
+    }
+}
+
+.logo{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    background-image:url('../img/logos/logo-transparent-w100.png');
+    width: 100px;
+    height: 115px;
+    display: block;
+    background-repeat: no-repeat;
+
+    @media (min-width: $mobile-min-width){
+        background-image:url('../img/logos/logo-transparent-w200.png');
+        width: 200px;
+        height: 230px;
+        display: block;
+    }
+}
