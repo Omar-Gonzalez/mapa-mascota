@@ -470,7 +470,7 @@ button[disabled],
 }
 
 .ui-listview a {
-  font-family: "Slabo 27px", serif !important;
+  font-family: "Slabo 27px", serif;
 }
 
 .logo {

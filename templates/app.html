@@ -8,10 +8,23 @@
     </div>
     <div data-role="content" data-theme="a">
         <div class="logo"></div>
-            <label for="text-basic">Text input:</label>
-            <input type="text" name="text-basic" id="text-basic" value="">
-            <label for="text-basic">Text input:</label>
-            <input type="text" name="text-basic" id="text-basic" value="">
+
+        {% if user.is_authenticated %}
+        <ul data-role="listview" data-inset="true">
+            <li><h2>Hola de nuevo {{ user.username }}</h2></li>
+        </ul>
+        {% else %}
+        <ul data-role="listview" data-inset="true">
+            <li>
+                <form method="POST" class="post-form" action="register">
+                    {% csrf_token %}
+                    {{ registerForm.as_p }}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Registrate</button>
+                </form>
+            </li>
+        </ul>
+        {% endif %}
         <ul data-role="listview" data-inset="true">
             <li><a href="#mapa" data-transition="slidedown">Mapa</a></li>
             <li><a href="#extravios" data-transition="slidedown">Reporta Extravio</a></li>
