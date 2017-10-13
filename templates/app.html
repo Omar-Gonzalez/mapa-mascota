@@ -1,93 +1,23 @@
 {% load static %}
 {% include 'partials/header.html' %}
 
-<!-- Home -->
-<div data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-    </div>
-    <div data-role="content" data-theme="a">
-        <div class="logo"></div>
+{% include 'widgets/sidebar.html' %}
 
-        {% if user.is_authenticated %}
-        <ul data-role="listview" data-inset="true">
-            <li><h2>Hola de nuevo {{ user.username }}</h2></li>
-        </ul>
-        {% else %}
-        <ul data-role="listview" data-inset="true">
-            <li>
-                <form method="POST" class="post-form" action="register">
-                    {% csrf_token %}
-                    {{ registerForm.as_p }}
-                    <br>
-                    <button type="submit" class="btn btn-primary">Registrate</button>
-                </form>
-            </li>
-        </ul>
-        {% endif %}
-        <ul data-role="listview" data-inset="true">
-            <li><a href="#mapa" data-transition="slidedown">Mapa</a></li>
-            <li><a href="#extravios" data-transition="slidedown">Reporta Extravio</a></li>
-            <li><a href="#encontrados" data-transition="slidedown">Reporta Econtrado</a></li>
-            <li><a href="#nosotros" data-transition="slidedown">¿Quienes somos?</a></li>
-            <li><a href="#legal" data-transition="slidedown">Aviso legal y de privacidad</a></li>
-        </ul>
+<div class="content">
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <h1 class="title">STRAYMAP</h1>
+        </div>
     </div>
-</div>
-
-<!-- Mapa -->
-<div id="mapa" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-        <a data-transition="slideup" data-icon="carat-l" data-iconpos="notext" data-rel="back"></a>
-    </div>
-    <div data-role="content" data-theme="a">
-        <p>Mapa</p>
-    </div>
-</div>
-
-<!-- Extravio -->
-<div id="extravios" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-        <a data-transition="slideup" data-icon="carat-l" data-iconpos="notext" data-rel="back"></a>
-    </div>
-    <div data-role="content" data-theme="a">
-        <p>Reporta extravio</p>
-    </div>
-</div>
-
-
-<!-- Encontrados -->
-<div id="encontrados" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-        <a data-transition="slideup" data-icon="carat-l" data-iconpos="notext" data-rel="back"></a>
-    </div>
-    <div data-role="content" data-theme="a">
-        <p>Reporta encontrados</p>
-    </div>
-</div>
-
-<!-- ¿Quienes Somos? -->
-<div id="nosotros" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-        <a data-transition="slideup" data-icon="carat-l" data-iconpos="notext" data-rel="back"></a>
-    </div>
-    <div data-role="content" data-theme="a">
-        <p>Nosotros</p>
-    </div>
-</div>
-
-<!-- Legal -->
-<div id="legal" data-role="page" data-theme="a">
-    <div data-role="header" data-position="inline">
-        <h1>Stray Map</h1>
-        <a data-transition="slideup" data-icon="carat-l" data-iconpos="notext" data-rel="back"></a>
-    </div>
-    <div data-role="content" data-theme="a">
-        <p>Legal</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
     </div>
 </div>
 

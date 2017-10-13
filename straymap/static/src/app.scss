@@ -1,41 +1,140 @@
 @import "./settings.scss";
-@import "./theme.scss";
 
-.ui-content{
+body,html{
+    margin: 0px;
+    padding: 0px;
+    background-color: $theme-pink
+}
+
+.jumbotron{
     background-color: transparent;
-    font-family: $font-slavo;
+    color: white;
+}
 
-    @media (min-width: $mobile-min-width){
-        max-width: 640px;
+.title{
+    font-family: $font-slavo
+}
+
+a{
+    font-family: $font-roboto;
+    cursor: pointer;
+}
+
+.content{
+    @if $debug {
+        outline:1px solid $debug-grid-color;
+    }
+    @media (max-width: $break-mobile){
+        margin-left:$sidebar-mobile-width;
+    }
+
+    @media (min-width: $break-mobile){
+        margin-left:$sidebar-desktop-width;
+    }
+}
+
+[class*="col-"]{
+    @if $debug {
+        outline:1px solid $debug-grid-color;
+    }
+}
+
+#sidebar{
+    position: fixed;
+    height: 100%;
+    background-color: $sidebar-bg-color;
+    z-index: 10;
+
+    .logo{
+        background-image: url('../img/logos/logo-pink-transparent-w150.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height:120px;
+        width:120px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 3rem;
     }
-}
 
-.ui-header{
-    font-family: $font-roboto;
-}
-
-.ui-listview {
-    a {
-        font-family: $font-slavo;
+    .sidebar-content{
+        width: 100%;
     }
-}
 
-.logo{
-    margin-left: auto;
-    margin-right: auto;
-    background-color: transparent;
-    background-image:url('../img/logos/logo-transparent-w100.png');
-    width: 100px;
-    height: 115px;
-    display: block;
-    background-repeat: no-repeat;
-
-    @media (min-width: $mobile-min-width){
-        background-image:url('../img/logos/logo-transparent-w200.png');
-        width: 200px;
-        height: 230px;
+    ul{
+        color:$sidebar-ul-color;
+        padding-left: 0;
+        list-style-type: none;
+        li{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        p, a, h1, h2, h3, h4{
+            padding-left: 30px;
+            color:$theme-pink;
+        }
+        a{
+            color:$sidebar-a-color;
+            display: block;
+            text-decoration: none;
+            &:hover{
+                background-color:$sidebar-nav-bg-color;
+            }
+        }
+    }
+    .sidebar-content{
         display: block;
+    }
+
+    @media (max-width: $break-mobile){
+        width:$sidebar-mobile-width;
+        box-shadow: 1px 0px 2px 0px rgba(18,18,18,1);
+        hr{
+            display: block;
+            color:$sidebar-icon-color;
+        }
+        .sidebar-nav{
+            background-color: $sidebar-nav-bg-color; 
+            min-height: $sidebar-mobile-width;
+        }
+        #toggle-menu{
+            color:$sidebar-icon-color;
+            padding-left: 10px;
+            padding-top: 10px;
+            font-size: 22px;
+            display:block;
+        }
+        #close-menu{
+            color:$sidebar-icon-color;
+            font-size: 22px;
+            float: right;
+            margin-top: -20px;
+            margin-right: 12px;
+            display: none;
+        }
+        .sidebar-content{
+            display: none;
+        }
+        #toggle-menu{
+            display: block;
+        }
+        #close-menu{
+            display: none;
+        }
+        hr{
+            display: block;
+        }
+    }
+
+    @media (min-width: $break-mobile){
+        width:$sidebar-desktop-width;
+        #toggle-menu{
+            display: none;
+        }
+        #close-menu{
+            display: none;
+        }
+        hr{
+            display: none;
+        }
     }
 }
