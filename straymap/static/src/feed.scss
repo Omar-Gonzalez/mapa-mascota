@@ -1,0 +1,30 @@
+.feed{
+    .list-group-item-heading{
+        font-family: $font-slavo;
+    }
+    .pet-portrait{
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no;
+        float: left;
+        margin-right: 2rem;
+        border-radius: 0.7rem;
+        @media (max-width: $break-mobile){
+            height: $thumb-small;
+            width: $thumb-small;
+        }        
+        @media (min-width: $break-mobile){
+            height: $thumb-large;
+            width: $thumb-large;        
+        }
+    }
+    .pet-container{
+        @media (max-width: $break-mobile){
+            min-height: 12.5rem;
+        }        
+        @media (min-width: $break-mobile){
+            min-height: 17.5rem;
+        }
+    }
+}
+

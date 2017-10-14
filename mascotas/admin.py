@@ -29,15 +29,35 @@ class ColorAdmin(admin.ModelAdmin):
 admin.site.register(Color, ColorAdmin)
 
 
+class RazaAdmin(admin.ModelAdmin):
+    list_display = [
+        "raza"
+    ]
+
+
+admin.site.register(Raza, RazaAdmin)
+
+
+class TamañoAdmin(admin.ModelAdmin):
+    list_display = [
+        "tamaño"
+    ]
+
+
+admin.site.register(Tamaño, TamañoAdmin)
+
+
 class MascotaAdmin(admin.ModelAdmin):
     list_display = [
         "user",
         "especie",
+        "raza",
         "genero",
         "color",
         "nombre",
-        "edad",
-        "señas"
+        "edad_años",
+        "señas",
+        "creado"
     ]
 
 

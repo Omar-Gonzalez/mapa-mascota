@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from . import views as app_views
+from mascotas import views as mascotas_views
 
 
 admin.site.site_header = 'Stray Map'
@@ -23,5 +23,5 @@ admin.site.site_header = 'Stray Map'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', app_views.home, name='home'),
+    url(r'^$', mascotas_views.feed, name='feed'),
 ]

@@ -4,27 +4,11 @@
 {% include 'widgets/sidebar.html' %}
 
 <div class="content">
-    <div class="container-fluid">
-
-        <div class="list-group">
-          <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">hey hey hey</p>
-          </a>
-        </div>
-
-        <div class="list-group">
-          <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">hey hey hey</p>
-          </a>
-        </div>
-
-        <div class="list-group">
-          <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">hey hey hey</p>
-          </a>
+    <div class="container-fluid feed">
+        <div class="col-md-8">
+            {% for mascota in mascotas %}
+                {% include 'widgets/mascota.html' %}
+            {% endfor %}            
         </div>
     </div>
 </div>

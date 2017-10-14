@@ -1,4 +1,43 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px");
+.feed .list-group-item-heading {
+  font-family: "Slabo 27px", serif;
+}
+
+.feed .pet-portrait {
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no;
+  float: left;
+  margin-right: 2rem;
+  border-radius: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .feed .pet-portrait {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-portrait {
+    height: 15rem;
+    width: 15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container {
+    min-height: 12.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container {
+    min-height: 17.5rem;
+  }
+}
+
 body, html {
   margin: 0px;
   padding: 0px;
