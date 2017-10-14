@@ -12,7 +12,7 @@ Open source django base stray pet localization web app
 
 - [BE] ptyhon-django based application 
 - [Geo position] Open Street Map
-- [FE] jquery mobile + SASS preprocesor
+- [FE] Bootstrap + SASS preprocesor
 
 ## How to Use
 
@@ -20,6 +20,7 @@ To use this project, follow these steps:
 
 1. Create your working environment.
 2. Install Django (`$ pip install django`)
+3. pip install requirements.txt
 
 ## Road map
 

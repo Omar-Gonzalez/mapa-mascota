@@ -7,9 +7,22 @@ body,html{
     background-color: $theme-pink
 }
 
-.jumbotron{
-    background-color: transparent;
-    color: white;
+.nav-sections{
+    padding-top: 1rem;
+    background-color: $sidebar-nav-bg-color;
+    text-decoration: none;  
+    .active{
+        a{
+            color: $theme-blue!important;
+            background-color: $theme-pink!important;
+        }
+    }
+    a{
+        color: $theme-pink;
+        &:hover{
+            color: $theme-blue;
+        }
+    }
 }
 
 .title{

@@ -14,15 +14,112 @@
 
 @media (max-width: 768px) {
   .feed .pet-portrait {
-    height: 10rem;
-    width: 10rem;
+    height: 13rem;
+    width: 13rem;
   }
 }
 
 @media (min-width: 768px) {
   .feed .pet-portrait {
-    height: 15rem;
-    width: 15rem;
+    height: 17rem;
+    width: 17rem;
+  }
+}
+
+.feed .pet-container {
+  background-color: white;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container {
+    margin-top: 0.5rem;
+    border-radius: 0rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container {
+    margin-top: 2rem;
+    border-radius: 1rem;
+  }
+}
+
+.feed .pet-container mark {
+  background-color: transparent;
+  text-decoration: none;
+  color: #003CA2;
+}
+
+.feed .pet-container h3 {
+  overflow: hidden;
+  max-width: 11rem;
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container .description-small {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container .description-small {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container .pet-info {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container .pet-info {
+    display: block;
+    width: 18rem;
+    float: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container .pet-description {
+    max-height: 7rem;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container .pet-description {
+    max-height: 9rem;
+    overflow: hidden;
+    margin-left: 2rem;
+    float: rigth;
+  }
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container .list-group-item-text {
+    font-size: 10pt;
+  }
+}
+
+.feed .pet-container .date {
+  color: #003CA2;
+}
+
+@media (max-width: 768px) {
+  .feed .pet-container .date {
+    margin-top: 0.5rem;
+    font-size: 11pt;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed .pet-container .date {
+    float: right;
+    margin-top: -3rem;
   }
 }
 
@@ -34,7 +131,7 @@
 
 @media (min-width: 768px) {
   .feed .pet-container {
-    min-height: 17.5rem;
+    min-height: 19.5rem;
   }
 }
 
@@ -44,9 +141,23 @@ body, html {
   background-color: #F7CECD;
 }
 
-.jumbotron {
-  background-color: transparent;
-  color: white;
+.nav-sections {
+  padding-top: 1rem;
+  background-color: #005ba0;
+  text-decoration: none;
+}
+
+.nav-sections .active a {
+  color: #003CA2 !important;
+  background-color: #F7CECD !important;
+}
+
+.nav-sections a {
+  color: #F7CECD;
+}
+
+.nav-sections a:hover {
+  color: #003CA2;
 }
 
 .title {
