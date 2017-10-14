@@ -18,6 +18,8 @@ body,html{
         }
     }
     a{
+        font-family: $font-roboto;
+        font-size: 11pt;
         color: $theme-pink;
         &:hover{
             color: $theme-blue;

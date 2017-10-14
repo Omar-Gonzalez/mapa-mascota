@@ -1,20 +1,12 @@
 {% load static %}
 {% include 'partials/header.html' %}
-
 {% include 'widgets/sidebar.html' %}
-
 <div class="content">
-    <div class="container-fluid nav-sections">
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="active"><a href="#">Extraviados</a></li>
-          <li role="presentation"><a href="#">Encontrados</a></li>
-        </ul>    
-    </div>
+    {% include 'widgets/nav-tabs.html' %}
     <div class="container-fluid feed">
         {% for mascota in mascotas %}
             {% include 'widgets/mascota.html' %}
         {% endfor %}            
     </div>
 </div>
-
 {% include 'partials/footer.html' %}

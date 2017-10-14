@@ -153,6 +153,8 @@ body, html {
 }
 
 .nav-sections a {
+  font-family: "Roboto", sans-serif;
+  font-size: 11pt;
   color: #F7CECD;
 }
 
