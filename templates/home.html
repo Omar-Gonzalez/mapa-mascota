@@ -4,6 +4,7 @@
 <div class="content">
     {% include 'widgets/nav-tabs.html' %}
     <div class="container-fluid feed">
+        <div id="feed-root"></div>
         {% for mascota in mascotas %}
             {% include 'widgets/mascota.html' %}
         {% endfor %}            
