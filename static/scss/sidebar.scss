@@ -1,39 +1,27 @@
-@import "./settings.scss";
-@import "./feed.scss";
+//Debug Settings
+$debug:false;
+$debug-grid-color:#03A9F4;
+
+//Theme Colors
+$sidebar-bg-color:#283593;
+$sidebar-nav-bg-color:#3F51B5;
+$sidebar-icon-color:white;
+$sidebar-a-color:white;
+$sidebar-ul-color:white;
+
+//Sidebar shadow
+$sidebar-mobile-shadow: 1px 0px 2px 0px rgba(18,18,18,1);
+
+//Sidebar Break Points
+$break-mobile: 768px;
+
+//Sidebar Width 
+$sidebar-mobile-width:44px;
+$sidebar-desktop-width:240px;
 
 body,html{
     margin: 0px;
     padding: 0px;
-    background-color: $theme-pink
-}
-
-.nav-sections{
-    padding-top: 1rem;
-    background-color: $sidebar-nav-bg-color;
-    text-decoration: none;  
-    .active{
-        a{
-            color: $theme-blue!important;
-            background-color: $theme-pink!important;
-        }
-    }
-    a{
-        font-family: $font-roboto;
-        font-size: 11pt;
-        color: $theme-pink;
-        &:hover{
-            color: $theme-blue;
-        }
-    }
-}
-
-.title{
-    font-family: $font-slavo
-}
-
-a{
-    font-family: $font-roboto;
-    cursor: pointer;
 }
 
 .content{
@@ -61,17 +49,6 @@ a{
     background-color: $sidebar-bg-color;
     z-index: 10;
 
-    .logo{
-        background-image: url('../img/logos/logo-pink-transparent-w150.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        height:120px;
-        width:120px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 3rem;
-    }
-
     .sidebar-content{
         width: 100%;
     }
@@ -86,7 +63,6 @@ a{
         }
         p, a, h1, h2, h3, h4{
             padding-left: 30px;
-            color:$theme-pink;
         }
         a{
             color:$sidebar-a-color;
@@ -101,6 +77,7 @@ a{
         display: block;
     }
 
+    //Mobile
     @media (max-width: $break-mobile){
         width:$sidebar-mobile-width;
         box-shadow: 1px 0px 2px 0px rgba(18,18,18,1);
@@ -138,9 +115,10 @@ a{
         }
         hr{
             display: block;
-        }        
+        }
     }
 
+    //Desktop
     @media (min-width: $break-mobile){
         width:$sidebar-desktop-width;
         .sb-toggle{
@@ -152,12 +130,5 @@ a{
         hr{
             display: none;
         }
-        .sidebar-content{
-            margin-top: 4rem;
-        } 
-    }
-
-    .show-large{
-        display: block;
     }
 }

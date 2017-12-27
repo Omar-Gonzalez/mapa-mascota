@@ -2,9 +2,10 @@
  * Omar Gonzalez - 17-10-2017 - Copyright MIT
  * ES6 Sidebar-Bootsrap Source 
  */
-var $ = require("jquery");
 
-class SideBar {
+let UI = window.UI || {};
+
+UI.Sidebar = class {
     /**
      * SideBar Component - props:
      * - this.updating : weather the sidebar is updating state
@@ -32,8 +33,8 @@ class SideBar {
                     width: '85%'
                 }, 350, () => {
                     //animation complete
-                    $('.sb-close').css('display', 'block');
-                    $('.sidebar-content').css('display', 'block');
+                    $('.sb-close').fadeIn("fast");
+                    $('.sidebar-content').fadeIn("fast");
                     this.updating = false;
                     this.state = "open";
                 });
@@ -41,7 +42,7 @@ class SideBar {
             if (this.state === "open") { //Close the SB
                 this.updating = true;
                 $('.sb-close').css('display', 'none');
-                $('.sidebar-content').css('display', 'none');
+                $('.sidebar-content').fadeOut("fast");
                 $('#sidebar').animate({
                     width: '44px'
                 }, 350, () => {
@@ -50,25 +51,22 @@ class SideBar {
                     this.state = "close";
                 });
             }
-        } else {
-            console.log("sb-updating");
         }
     }
 
     screenSizeEvent() {
-        this.resizeSb();
-        let _this = this;
+        this.resize();
         $(window).on('resize', () => {
-            _this.resizeSb();
+            this.resize();
         });
     }
 
-    resizeSb() {
+    resize() {
         if ($(window).width() >= this.mobileBreakPoint) {
+            $('.sidebar-nav').hide();
             $('#sidebar').css('width', '240px');
             $('.sb-close').css('display', 'none');
             $('.sidebar-content').css('display', 'block');
-            $('.sidebar-nav').hide();
         } else {
             $('.sidebar-nav').show();
             $('#sidebar').css('width', '44px');
@@ -76,12 +74,52 @@ class SideBar {
             $('.sidebar-content').css('display', 'none');
         }
     }
-}
+};
 
-let sb = new SideBar();
+UI.sb = new UI.Sidebar();
 
-$('document').ready(function(){
-    $('.sb-update').click(function(){
-        sb.update();
-    });
-})
+UI.AuthArea = class {
+    /**
+     * Auth Area Component - props:
+     * - this.updating : weather the auth area is updating state
+     * - this.state : weather the auth area is open or close
+     * Auth Area - methods:
+     * - update() - close or open the side bar
+     */    
+     constructor() {
+        //Props
+        this.updating = false;
+        this.state = "close";
+        this.mobileBreakPoint = 768;
+        //Init methods
+    }
+
+    update() {
+        if (!this.updating) {
+            if (this.state === 'close') {
+                this.updating = true;
+                $('.auth-close').fadeIn('fast');
+                $('#auth-area').animate({
+                    height: window.innerHeight + 'px'
+                }, 350, () => {
+                    this.updating = false;
+                    this.state = 'open';
+                    $('.auth-content').fadeIn('fast');
+                });
+            }
+            if (this.state === 'open') {
+                this.updating = true;
+                $('.auth-content').fadeOut('fast');
+                $('#auth-area').animate({
+                    height: '52px'
+                }, 350, () => {
+                    this.updating = false;
+                    this.state = 'close';
+                    $('.auth-close').fadeOut('fast');
+                });
+            }
+        }
+    }
+};
+
+UI.authArea = new UI.AuthArea();
