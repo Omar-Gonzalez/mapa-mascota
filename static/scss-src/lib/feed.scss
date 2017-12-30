@@ -1,0 +1,28 @@
+$feed-font-color:#283593;
+$feed-font-secondary-color:#424242;
+
+.feed{
+
+    .mascota{
+        overflow: auto;
+        background-color: whitesmoke;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-top-color: #BDBDBD;
+        padding: 20px;
+    }
+
+    h3{
+        font-weight: bold;
+    }
+
+    p{
+        color:$feed-font-secondary-color;
+    }
+
+    mark{
+        font-weight: bold;
+        background-color: transparent;
+        color: $feed-font-color;
+    }
+}

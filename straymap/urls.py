@@ -15,13 +15,26 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from perfiles import views as perfiles_views
 from mascotas import views as mascotas_views
 
 
-admin.site.site_header = 'Stray Map'
+admin.site.site_header = 'Proyecto EMA'
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', mascotas_views.feed, name='feed'),
+    url(r'^$', mascotas_views.home, name='home'),
+
+    # Login y Registro
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^registro/$', perfiles_views.registro, name='registro'),
+    url(r'^auth-login/$', perfiles_views.auth_login, name='auth_login'),
+
+    # AJAX
+    url(r'^v1/mascotas/feed/$', mascotas_views.feed, name='feed'),
+    url(r'^v1/mascotas/form/reporta/$',
+        mascotas_views.reporta_mascota, name='reporta_mascota'),
 ]

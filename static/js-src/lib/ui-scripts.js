@@ -85,8 +85,8 @@ UI.AuthArea = class {
      * - this.state : weather the auth area is open or close
      * Auth Area - methods:
      * - update() - close or open the side bar
-     */    
-     constructor() {
+     */
+    constructor() {
         //Props
         this.updating = false;
         this.state = "close";
@@ -123,3 +123,51 @@ UI.AuthArea = class {
 };
 
 UI.authArea = new UI.AuthArea();
+
+UI.ReportaMascota = class {
+    /**
+     * Repota Mascota Component - props:
+     * - this.updating : weather the auth area is updating state
+     * - this.state : weather the auth area is open or close
+     * Auth Area - methods:
+     * - update() - close or open the side bar
+     */
+    constructor() {
+        //Props
+        this.updating = false;
+        this.state = "close";
+        this.mobileBreakPoint = 768;
+        //Init methods
+    }
+
+    update() {
+        if (!this.updating) {
+            if (this.state === 'close') {
+                this.updating = true;
+                $('.reporta-close').fadeIn('fast');
+                $('.reporta-mascota-area').animate({
+                    height: window.innerHeight + 'px'
+                }, 350, () => {
+                    this.updating = false;
+                    this.state = 'open';
+                    $('.reporta-mascota-body').fadeIn('fast');
+                });
+            }
+            if (this.state === 'open') {
+                this.updating = true;
+                $('.reporta-mascota-body').fadeOut('fast');
+                $('.reporta-mascota-area').animate({
+                    height: '52px'
+                }, 350, () => {
+                    this.updating = false;
+                    this.state = 'close';
+                    $('.reporta-close').fadeOut('fast');
+                });
+            }
+        }
+    }
+};
+
+UI.reportaMascota = new UI.ReportaMascota();
+
+module.exports = UI;

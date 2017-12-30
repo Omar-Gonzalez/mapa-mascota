@@ -2,12 +2,11 @@
 {% include 'partials/header.html' %}
 {% include 'widgets/sidebar.html' %}
 <div class="content">
-    {% include 'widgets/auth-area.html' %}
-    <div class="container-fluid feed">
-        <div id="feed-root"></div>
-        {% for mascota in mascotas %}
-            {% include 'widgets/mascota.html' %}
-        {% endfor %}            
-    </div>
+    {% if user.is_authenticated == False %}
+        {% include 'widgets/auth-area.html' %}
+    {% endif %}
+    <div class="ajax-node-mascota-form"></div>
+    <br>
+    <div id="ajax-node-feed"></div>
 </div>
 {% include 'partials/footer.html' %}

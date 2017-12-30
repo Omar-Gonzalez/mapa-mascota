@@ -1,0 +1,13 @@
+//CSS Dependencies 
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+
+//Custom Sheets
+@import './lib/sidebar.scss';
+@import './lib/auth-area.scss';
+@import './lib/reporta-mascota.scss';
+@import './lib/loader.scss';
+@import './lib/feed.scss';
+
+body{
+    background-color: #EEEEEE;
+}
