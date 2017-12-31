@@ -47,6 +47,15 @@ class TamañoAdmin(admin.ModelAdmin):
 admin.site.register(Tamaño, TamañoAdmin)
 
 
+class EstadoAdmin(admin.ModelAdmin):
+    list_display = [
+        "actual"
+    ]
+
+
+admin.site.register(Estado, EstadoAdmin)
+
+
 class MascotaAdmin(admin.ModelAdmin):
     list_display = [
         "user",
@@ -57,6 +66,7 @@ class MascotaAdmin(admin.ModelAdmin):
         "nombre",
         "edad_años",
         "señas",
+        "estado",
         "creado"
     ]
 

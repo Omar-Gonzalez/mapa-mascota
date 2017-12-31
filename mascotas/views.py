@@ -21,9 +21,14 @@ def test(request):
 
 
 def reporta_mascota(request):
-    form = MascotaForm(request.POST)
-    if form.is_valid():
-        form.save()
+    form = MascotaForm(request.user, request.POST)
+    if request.method == "POST":
+        if form.is_valid() and request.user.is_authenticated():
+            form.save()
+            return redirect('home')
+        else:
+            # return redirect with errors
+            return redirect('home')
     return render(request, 'forms/reporta-mascota.html', {
         'form': form
     })

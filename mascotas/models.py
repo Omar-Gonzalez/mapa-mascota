@@ -77,6 +77,23 @@ class Tamaño(models.Model):
         return self.tamaño
 
 
+class Estado(models.Model):
+    actual = models.CharField(max_length=50)
+    # Primera fila de tabla debe ser estado EXTRAVIADO
+    DEFAULT_TO_EXTRAVIADO = 1
+
+    def save(self, force_insert=False, force_update=False):
+        self.actual = self.actual.upper()
+        super(Estado, self).save(force_insert, force_update)
+
+    class Meta:
+        verbose_name = "Estado de mascota"
+        verbose_name_plural = "Posibles estados de mascota"
+
+    def __str__(self):
+        return self.actual
+
+
 class Mascota(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     especie = models.ForeignKey(Especie)
@@ -87,6 +104,7 @@ class Mascota(models.Model):
     nombre = models.CharField(max_length=50)
     edad_años = models.IntegerField()
     señas = models.TextField(null=True, blank=True, default="")
+    estado = models.ForeignKey(Estado, default=Estado.DEFAULT_TO_EXTRAVIADO)
     creado = models.DateField(auto_now_add=True)
     actualizado = models.DateField(auto_now=True)
 

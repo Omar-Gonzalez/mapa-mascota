@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10445,18 +10445,237 @@ module.exports = GlobalAjaxUpdate;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
-module.exports = __webpack_require__(9);
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Omar Gonzalez - 17-10-2017 - Copyright MIT
+ * ES6 Sidebar-Bootsrap Source 
+ */
+
+var UI = window.UI || {};
+
+UI.Sidebar = function () {
+    /**
+     * SideBar Component - props:
+     * - this.updating : weather the sidebar is updating state
+     * - this.state : weather the sidebar is open or close
+     * - this.mobileBreakPoint : grid break point for mobile devices
+     * SideBar - methods:
+     * - update() - close or open the side bar
+     * - screenSizeEvent() - attach event listener screen width change
+     * - setDesktopMode() - set destkop mode if necesary
+     */
+    function _class() {
+        _classCallCheck(this, _class);
+
+        //Props
+        this.updating = false;
+        this.state = "close";
+        this.mobileBreakPoint = 768;
+        //Init methods
+        this.screenSizeEvent();
+    }
+
+    _createClass(_class, [{
+        key: "update",
+        value: function update() {
+            var _this = this;
+
+            if (!this.updating) {
+                if (this.state === "close") {
+                    //Open the SB
+                    this.updating = true;
+                    $("#sidebar").animate({
+                        width: '85%'
+                    }, 350, function () {
+                        //animation complete
+                        $('.sb-close').fadeIn("fast");
+                        $('.sidebar-content').fadeIn("fast");
+                        _this.updating = false;
+                        _this.state = "open";
+                    });
+                }
+                if (this.state === "open") {
+                    //Close the SB
+                    this.updating = true;
+                    $('.sb-close').css('display', 'none');
+                    $('.sidebar-content').fadeOut("fast");
+                    $('#sidebar').animate({
+                        width: '44px'
+                    }, 350, function () {
+                        //animation complete
+                        _this.updating = false;
+                        _this.state = "close";
+                    });
+                }
+            }
+        }
+    }, {
+        key: "screenSizeEvent",
+        value: function screenSizeEvent() {
+            var _this2 = this;
+
+            this.resize();
+            $(window).on('resize', function () {
+                _this2.resize();
+            });
+        }
+    }, {
+        key: "resize",
+        value: function resize() {
+            if ($(window).width() >= this.mobileBreakPoint) {
+                $('.sidebar-nav').hide();
+                $('#sidebar').css('width', '240px');
+                $('.sb-close').css('display', 'none');
+                $('.sidebar-content').css('display', 'block');
+            } else {
+                $('.sidebar-nav').show();
+                $('#sidebar').css('width', '44px');
+                $('.sb-close').css('display', 'none');
+                $('.sidebar-content').css('display', 'none');
+            }
+        }
+    }]);
+
+    return _class;
+}();
+
+UI.sb = new UI.Sidebar();
+
+UI.AuthArea = function () {
+    /**
+     * Auth Area Component - props:
+     * - this.updating : weather the auth area is updating state
+     * - this.state : weather the auth area is open or close
+     * Auth Area - methods:
+     * - update() - close or open the side bar
+     */
+    function _class2() {
+        _classCallCheck(this, _class2);
+
+        //Props
+        this.updating = false;
+        this.state = "close";
+        this.mobileBreakPoint = 768;
+        //Init methods
+    }
+
+    _createClass(_class2, [{
+        key: "update",
+        value: function update() {
+            var _this3 = this;
+
+            if (!this.updating) {
+                if (this.state === 'close') {
+                    this.updating = true;
+                    $('.auth-close').fadeIn('fast');
+                    $('#auth-area').animate({
+                        height: window.innerHeight + 'px'
+                    }, 350, function () {
+                        _this3.updating = false;
+                        _this3.state = 'open';
+                        $('.auth-content').fadeIn('fast');
+                    });
+                }
+                if (this.state === 'open') {
+                    this.updating = true;
+                    $('.auth-content').fadeOut('fast');
+                    $('#auth-area').animate({
+                        height: '52px'
+                    }, 350, function () {
+                        _this3.updating = false;
+                        _this3.state = 'close';
+                        $('.auth-close').fadeOut('fast');
+                    });
+                }
+            }
+        }
+    }]);
+
+    return _class2;
+}();
+
+UI.authArea = new UI.AuthArea();
+
+UI.ReportaMascota = function () {
+    /**
+     * Repota Mascota Component - props:
+     * - this.updating : weather the auth area is updating state
+     * - this.state : weather the auth area is open or close
+     * Auth Area - methods:
+     * - update() - close or open the side bar
+     */
+    function _class3() {
+        _classCallCheck(this, _class3);
+
+        //Props
+        this.updating = false;
+        this.state = "close";
+        this.mobileBreakPoint = 768;
+        //Init methods
+    }
+
+    _createClass(_class3, [{
+        key: "update",
+        value: function update() {
+            var _this4 = this;
+
+            if (!this.updating) {
+                if (this.state === 'close') {
+                    this.updating = true;
+                    $('.reporta-close').fadeIn('fast');
+                    $('.reporta-mascota-area').animate({
+                        height: window.innerHeight + 'px'
+                    }, 350, function () {
+                        _this4.updating = false;
+                        _this4.state = 'open';
+                        $('.reporta-mascota-body').fadeIn('fast');
+                    });
+                }
+                if (this.state === 'open') {
+                    this.updating = true;
+                    $('.reporta-mascota-body').fadeOut('fast');
+                    $('.reporta-mascota-area').animate({
+                        height: '52px'
+                    }, 350, function () {
+                        _this4.updating = false;
+                        _this4.state = 'close';
+                        $('.reporta-close').fadeOut('fast');
+                    });
+                }
+            }
+        }
+    }]);
+
+    return _class3;
+}();
+
+UI.reportaMascota = new UI.ReportaMascota();
+
+module.exports = UI;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(5);
+module.exports = __webpack_require__(10);
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(6);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -10464,7 +10683,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(8)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -10481,10 +10700,10 @@ if(false) {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(undefined);
+exports = module.exports = __webpack_require__(7)(undefined);
 // imports
 exports.push([module.i, "@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);", ""]);
 
@@ -10495,7 +10714,7 @@ exports.push([module.i, "body, html {\n  margin: 0px;\n  padding: 0px; }\n\n@med
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /*
@@ -10577,7 +10796,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -10633,7 +10852,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(8);
+var	fixUrls = __webpack_require__(9);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -10949,7 +11168,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 
@@ -11044,28 +11263,27 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(10);
+__webpack_require__(11);
 
 __webpack_require__(1);
 
 __webpack_require__(2);
 
-__webpack_require__(23);
+__webpack_require__(3);
 
-__webpack_require__(25);
+__webpack_require__(24);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-__webpack_require__(11)
 __webpack_require__(12)
 __webpack_require__(13)
 __webpack_require__(14)
@@ -11077,9 +11295,10 @@ __webpack_require__(19)
 __webpack_require__(20)
 __webpack_require__(21)
 __webpack_require__(22)
+__webpack_require__(23)
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -11145,7 +11364,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -11246,7 +11465,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -11378,7 +11597,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -11622,7 +11841,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -11841,7 +12060,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -12013,7 +12232,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -12359,7 +12578,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -12886,7 +13105,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -13001,7 +13220,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -13180,7 +13399,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -13342,7 +13561,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* ========================================================================
@@ -13511,227 +13730,7 @@ __webpack_require__(22)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Omar Gonzalez - 17-10-2017 - Copyright MIT
- * ES6 Sidebar-Bootsrap Source 
- */
-
-var UI = window.UI || {};
-
-UI.Sidebar = function () {
-    /**
-     * SideBar Component - props:
-     * - this.updating : weather the sidebar is updating state
-     * - this.state : weather the sidebar is open or close
-     * - this.mobileBreakPoint : grid break point for mobile devices
-     * SideBar - methods:
-     * - update() - close or open the side bar
-     * - screenSizeEvent() - attach event listener screen width change
-     * - setDesktopMode() - set destkop mode if necesary
-     */
-    function _class() {
-        _classCallCheck(this, _class);
-
-        //Props
-        this.updating = false;
-        this.state = "close";
-        this.mobileBreakPoint = 768;
-        //Init methods
-        this.screenSizeEvent();
-    }
-
-    _createClass(_class, [{
-        key: "update",
-        value: function update() {
-            var _this = this;
-
-            if (!this.updating) {
-                if (this.state === "close") {
-                    //Open the SB
-                    this.updating = true;
-                    $("#sidebar").animate({
-                        width: '85%'
-                    }, 350, function () {
-                        //animation complete
-                        $('.sb-close').fadeIn("fast");
-                        $('.sidebar-content').fadeIn("fast");
-                        _this.updating = false;
-                        _this.state = "open";
-                    });
-                }
-                if (this.state === "open") {
-                    //Close the SB
-                    this.updating = true;
-                    $('.sb-close').css('display', 'none');
-                    $('.sidebar-content').fadeOut("fast");
-                    $('#sidebar').animate({
-                        width: '44px'
-                    }, 350, function () {
-                        //animation complete
-                        _this.updating = false;
-                        _this.state = "close";
-                    });
-                }
-            }
-        }
-    }, {
-        key: "screenSizeEvent",
-        value: function screenSizeEvent() {
-            var _this2 = this;
-
-            this.resize();
-            $(window).on('resize', function () {
-                _this2.resize();
-            });
-        }
-    }, {
-        key: "resize",
-        value: function resize() {
-            if ($(window).width() >= this.mobileBreakPoint) {
-                $('.sidebar-nav').hide();
-                $('#sidebar').css('width', '240px');
-                $('.sb-close').css('display', 'none');
-                $('.sidebar-content').css('display', 'block');
-            } else {
-                $('.sidebar-nav').show();
-                $('#sidebar').css('width', '44px');
-                $('.sb-close').css('display', 'none');
-                $('.sidebar-content').css('display', 'none');
-            }
-        }
-    }]);
-
-    return _class;
-}();
-
-UI.sb = new UI.Sidebar();
-
-UI.AuthArea = function () {
-    /**
-     * Auth Area Component - props:
-     * - this.updating : weather the auth area is updating state
-     * - this.state : weather the auth area is open or close
-     * Auth Area - methods:
-     * - update() - close or open the side bar
-     */
-    function _class2() {
-        _classCallCheck(this, _class2);
-
-        //Props
-        this.updating = false;
-        this.state = "close";
-        this.mobileBreakPoint = 768;
-        //Init methods
-    }
-
-    _createClass(_class2, [{
-        key: "update",
-        value: function update() {
-            var _this3 = this;
-
-            if (!this.updating) {
-                if (this.state === 'close') {
-                    this.updating = true;
-                    $('.auth-close').fadeIn('fast');
-                    $('#auth-area').animate({
-                        height: window.innerHeight + 'px'
-                    }, 350, function () {
-                        _this3.updating = false;
-                        _this3.state = 'open';
-                        $('.auth-content').fadeIn('fast');
-                    });
-                }
-                if (this.state === 'open') {
-                    this.updating = true;
-                    $('.auth-content').fadeOut('fast');
-                    $('#auth-area').animate({
-                        height: '52px'
-                    }, 350, function () {
-                        _this3.updating = false;
-                        _this3.state = 'close';
-                        $('.auth-close').fadeOut('fast');
-                    });
-                }
-            }
-        }
-    }]);
-
-    return _class2;
-}();
-
-UI.authArea = new UI.AuthArea();
-
-UI.ReportaMascota = function () {
-    /**
-     * Repota Mascota Component - props:
-     * - this.updating : weather the auth area is updating state
-     * - this.state : weather the auth area is open or close
-     * Auth Area - methods:
-     * - update() - close or open the side bar
-     */
-    function _class3() {
-        _classCallCheck(this, _class3);
-
-        //Props
-        this.updating = false;
-        this.state = "close";
-        this.mobileBreakPoint = 768;
-        //Init methods
-    }
-
-    _createClass(_class3, [{
-        key: "update",
-        value: function update() {
-            var _this4 = this;
-
-            if (!this.updating) {
-                if (this.state === 'close') {
-                    this.updating = true;
-                    $('.reporta-close').fadeIn('fast');
-                    $('.reporta-mascota-area').animate({
-                        height: window.innerHeight + 'px'
-                    }, 350, function () {
-                        _this4.updating = false;
-                        _this4.state = 'open';
-                        $('.reporta-mascota-body').fadeIn('fast');
-                    });
-                }
-                if (this.state === 'open') {
-                    this.updating = true;
-                    $('.reporta-mascota-body').fadeOut('fast');
-                    $('.reporta-mascota-area').animate({
-                        height: '52px'
-                    }, 350, function () {
-                        _this4.updating = false;
-                        _this4.state = 'close';
-                        $('.reporta-close').fadeOut('fast');
-                    });
-                }
-            }
-        }
-    }]);
-
-    return _class3;
-}();
-
-UI.reportaMascota = new UI.ReportaMascota();
-
-module.exports = UI;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 24 */,
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13742,7 +13741,7 @@ module.exports = UI;
 */
 
 var GlobalAjaxUpdate = __webpack_require__(2);
-var UI = __webpack_require__(23);
+var UI = __webpack_require__(3);
 
 $(document).ready(function () {
     /**

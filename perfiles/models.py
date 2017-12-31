@@ -1,3 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+class Telefono(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    numero = models.CharField(max_length=30, blank=True, null=True, default="")
+
+    class Meta:
+        verbose_name='Telefonos'
+        verbose_name_plural='Telefonos Registrados'
+
+    def __str__(self):
+        return self.numero
