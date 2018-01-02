@@ -53,6 +53,10 @@ body,html{
         width: 100%;
     }
 
+    -webkit-box-shadow: inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9);
+    -moz-box-shadow:    inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9);
+    box-shadow:         inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9);
+
     ul{
         color:$sidebar-ul-color;
         padding-left: 0;

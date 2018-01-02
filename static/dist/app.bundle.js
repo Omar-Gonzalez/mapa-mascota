@@ -10413,33 +10413,60 @@ module.exports = AJAX;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 var AJAX = __webpack_require__(1);
 
 function GlobalAjaxUpdate() {
-    AJAX.html.replace({
-        url: "v1/mascotas/feed",
-        sel: "#ajax-node-feed"
-    });
+    var group = $("#ajax-group").val();
 
-    AJAX.html.replace({
-        url: "login",
-        sel: ".ajax-node-login"
-    });
+    if (group === "home") {
+        AJAX.html.replace({
+            url: "/v1/mascotas/feed",
+            sel: "#ajax-node-feed"
+        });
 
-    AJAX.html.replace({
-        url: "registro",
-        sel: ".ajax-node-registro"
-    });
+        AJAX.html.replace({
+            url: "/login",
+            sel: ".ajax-node-login"
+        });
 
-    AJAX.html.replace({
-        url: "v1/mascotas/form/reporta",
-        sel: ".ajax-node-mascota-form"
-    });
+        AJAX.html.replace({
+            url: "/registro",
+            sel: ".ajax-node-registro"
+        });
+
+        AJAX.html.replace({
+            url: "/v1/mascotas/form/reporta",
+            sel: ".ajax-node-mascota-form"
+        });
+
+        AJAX.html.replace({
+            url: "/v1/usuario/propio",
+            sel: ".ajax-node-usuario-propio"
+        });
+    }
+
+    if (group === "perfil") {
+        AJAX.html.replace({
+            url: "/login",
+            sel: ".ajax-node-login"
+        });
+
+        AJAX.html.replace({
+            url: "/registro",
+            sel: ".ajax-node-registro"
+        });
+
+        AJAX.html.replace({
+            url: "/v1/usuario/propio",
+            sel: ".ajax-node-usuario-propio"
+        });
+    }
 }
 
 module.exports = GlobalAjaxUpdate;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -10708,7 +10735,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 exports.push([module.i, "@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);", ""]);
 
 // module
-exports.push([module.i, "body, html {\n  margin: 0px;\n  padding: 0px; }\n\n@media (max-width: 768px) {\n  .content {\n    margin-left: 44px; } }\n\n@media (min-width: 768px) {\n  .content {\n    margin-left: 240px; } }\n\n#sidebar {\n  position: fixed;\n  height: 100%;\n  background-color: #283593;\n  z-index: 10; }\n  #sidebar .sidebar-content {\n    width: 100%; }\n  #sidebar ul {\n    color: white;\n    padding-left: 0;\n    list-style-type: none; }\n    #sidebar ul li {\n      margin-top: 5px;\n      margin-bottom: 5px; }\n    #sidebar ul p, #sidebar ul a, #sidebar ul h1, #sidebar ul h2, #sidebar ul h3, #sidebar ul h4 {\n      padding-left: 30px; }\n    #sidebar ul a {\n      color: white;\n      display: block;\n      text-decoration: none; }\n      #sidebar ul a:hover {\n        background-color: #3F51B5; }\n  #sidebar .sidebar-content {\n    display: block; }\n  @media (max-width: 768px) {\n    #sidebar {\n      width: 44px;\n      box-shadow: 1px 0px 2px 0px #121212; }\n      #sidebar hr {\n        display: block;\n        color: white; }\n      #sidebar .sidebar-nav {\n        background-color: #3F51B5;\n        min-height: 44px; }\n      #sidebar .sb-toggle {\n        color: white;\n        padding-left: 10px;\n        padding-top: 10px;\n        font-size: 22px;\n        display: block; }\n      #sidebar .sb-close {\n        color: white;\n        font-size: 22px;\n        float: right;\n        margin-top: -20px;\n        margin-right: 12px;\n        display: none; }\n      #sidebar .sidebar-content {\n        display: none; }\n      #sidebar .sb-toggle {\n        display: block; }\n      #sidebar .sb-close {\n        display: none; }\n      #sidebar hr {\n        display: block; } }\n  @media (min-width: 768px) {\n    #sidebar {\n      width: 240px; }\n      #sidebar .sb-toggle {\n        display: none; }\n      #sidebar .sb-close {\n        display: none; }\n      #sidebar hr {\n        display: none; } }\n\n#auth-area {\n  background-color: #E0E0E0;\n  width: 100%;\n  margin: 0px;\n  overflow: auto; }\n  #auth-area .auth-content {\n    display: none; }\n  #auth-area .auth-close {\n    float: right;\n    color: white;\n    font-size: 22px;\n    margin-top: -33px;\n    margin-right: 11px;\n    display: none; }\n  #auth-area #auth-header {\n    background-color: #212121;\n    height: 52px;\n    cursor: pointer; }\n    #auth-area #auth-header:hover .auth-legend {\n      color: #2196F3; }\n    #auth-area #auth-header:hover .auth-close {\n      color: #2196F3; }\n  @media (max-width: 768px) {\n    #auth-area .auth-legend {\n      text-align: center;\n      font-size: 15px;\n      margin-top: 17px;\n      color: #2196F3; } }\n  @media (min-width: 768px) {\n    #auth-area .auth-legend {\n      text-align: center;\n      font-size: 18px;\n      margin-top: 12px;\n      color: white; } }\n\n.reporta-mascota-area {\n  height: 65px;\n  overflow: auto; }\n  .reporta-mascota-area .reporta-close {\n    float: right;\n    color: white;\n    font-size: 22px;\n    margin-top: -33px;\n    margin-right: 11px;\n    display: none; }\n  .reporta-mascota-area #reporta-header {\n    background-color: #212121;\n    height: 52px;\n    cursor: pointer; }\n    .reporta-mascota-area #reporta-header:hover .reporta-legend {\n      color: #2196F3; }\n    .reporta-mascota-area #reporta-header:hover .reporta-close {\n      color: #2196F3; }\n  @media (max-width: 768px) {\n    .reporta-mascota-area .reporta-legend {\n      text-align: center;\n      font-size: 15px;\n      margin-top: 17px;\n      color: #2196F3; } }\n  @media (min-width: 768px) {\n    .reporta-mascota-area .reporta-legend {\n      text-align: center;\n      font-size: 18px;\n      margin-top: 14px;\n      color: white; } }\n  .reporta-mascota-area .reporta-mascota-body {\n    background-color: #E0E0E0;\n    display: none; }\n\n.loader {\n  border: 12px solid #C5CAE9;\n  border-top: 12px solid #283593;\n  border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.feed .mascota {\n  overflow: auto;\n  background-color: whitesmoke;\n  border-top-style: solid;\n  border-top-width: 1px;\n  border-top-color: #BDBDBD;\n  padding: 20px; }\n\n.feed h3 {\n  font-weight: bold; }\n\n.feed p {\n  color: #424242; }\n\n.feed mark {\n  font-weight: bold;\n  background-color: transparent;\n  color: #283593; }\n\nbody {\n  background-color: #EEEEEE; }\n", ""]);
+exports.push([module.i, "body, html {\n  margin: 0px;\n  padding: 0px; }\n\n@media (max-width: 768px) {\n  .content {\n    margin-left: 44px; } }\n\n@media (min-width: 768px) {\n  .content {\n    margin-left: 240px; } }\n\n#sidebar {\n  position: fixed;\n  height: 100%;\n  background-color: #283593;\n  z-index: 10;\n  -webkit-box-shadow: inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9);\n  -moz-box-shadow: inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9);\n  box-shadow: inset -10px 0px 10px 0px rgba(26, 35, 126, 0.9); }\n  #sidebar .sidebar-content {\n    width: 100%; }\n  #sidebar ul {\n    color: white;\n    padding-left: 0;\n    list-style-type: none; }\n    #sidebar ul li {\n      margin-top: 5px;\n      margin-bottom: 5px; }\n    #sidebar ul p, #sidebar ul a, #sidebar ul h1, #sidebar ul h2, #sidebar ul h3, #sidebar ul h4 {\n      padding-left: 30px; }\n    #sidebar ul a {\n      color: white;\n      display: block;\n      text-decoration: none; }\n      #sidebar ul a:hover {\n        background-color: #3F51B5; }\n  #sidebar .sidebar-content {\n    display: block; }\n  @media (max-width: 768px) {\n    #sidebar {\n      width: 44px;\n      box-shadow: 1px 0px 2px 0px #121212; }\n      #sidebar hr {\n        display: block;\n        color: white; }\n      #sidebar .sidebar-nav {\n        background-color: #3F51B5;\n        min-height: 44px; }\n      #sidebar .sb-toggle {\n        color: white;\n        padding-left: 10px;\n        padding-top: 10px;\n        font-size: 22px;\n        display: block; }\n      #sidebar .sb-close {\n        color: white;\n        font-size: 22px;\n        float: right;\n        margin-top: -20px;\n        margin-right: 12px;\n        display: none; }\n      #sidebar .sidebar-content {\n        display: none; }\n      #sidebar .sb-toggle {\n        display: block; }\n      #sidebar .sb-close {\n        display: none; }\n      #sidebar hr {\n        display: block; } }\n  @media (min-width: 768px) {\n    #sidebar {\n      width: 240px; }\n      #sidebar .sb-toggle {\n        display: none; }\n      #sidebar .sb-close {\n        display: none; }\n      #sidebar hr {\n        display: none; } }\n\n#auth-area {\n  background-color: #E0E0E0;\n  width: 100%;\n  margin: 0px;\n  overflow: auto; }\n  #auth-area .auth-content {\n    display: none; }\n  #auth-area .auth-close {\n    float: right;\n    color: white;\n    font-size: 22px;\n    margin-top: -33px;\n    margin-right: 11px;\n    display: none; }\n  #auth-area #auth-header {\n    background-color: #212121;\n    height: 52px;\n    cursor: pointer; }\n    #auth-area #auth-header:hover .auth-legend {\n      color: #2196F3; }\n    #auth-area #auth-header:hover .auth-close {\n      color: #2196F3; }\n  @media (max-width: 768px) {\n    #auth-area .auth-legend {\n      text-align: center;\n      font-size: 15px;\n      margin-top: 17px;\n      color: #2196F3; } }\n  @media (min-width: 768px) {\n    #auth-area .auth-legend {\n      text-align: center;\n      font-size: 18px;\n      margin-top: 12px;\n      color: white; } }\n\n.reporta-mascota-area {\n  height: 65px;\n  overflow: auto; }\n  .reporta-mascota-area .reporta-close {\n    float: right;\n    color: white;\n    font-size: 22px;\n    margin-top: -33px;\n    margin-right: 11px;\n    display: none; }\n  .reporta-mascota-area #reporta-header {\n    background-color: #212121;\n    height: 52px;\n    cursor: pointer; }\n    .reporta-mascota-area #reporta-header:hover .reporta-legend {\n      color: #2196F3; }\n    .reporta-mascota-area #reporta-header:hover .reporta-close {\n      color: #2196F3; }\n  @media (max-width: 768px) {\n    .reporta-mascota-area .reporta-legend {\n      text-align: center;\n      font-size: 15px;\n      margin-top: 17px;\n      color: #2196F3; } }\n  @media (min-width: 768px) {\n    .reporta-mascota-area .reporta-legend {\n      text-align: center;\n      font-size: 18px;\n      margin-top: 14px;\n      color: white; } }\n  .reporta-mascota-area .reporta-mascota-body {\n    background-color: #E0E0E0;\n    display: none; }\n\n.loader {\n  border: 12px solid #C5CAE9;\n  border-top: 12px solid #283593;\n  border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  animation: spin 2s linear infinite; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\n.feed .mascota {\n  overflow: auto;\n  background-color: whitesmoke;\n  border-top-style: solid;\n  border-top-width: 1px;\n  border-top-color: #BDBDBD;\n  padding: 20px; }\n\n.feed h3 {\n  font-weight: bold; }\n\n.feed p {\n  color: #424242; }\n\n.feed mark {\n  font-weight: bold;\n  background-color: transparent;\n  color: #283593; }\n\n.perfil-container {\n  margin-left: 30px;\n  margin-right: 30px;\n  padding-top: 30px; }\n\n.usuario {\n  background-color: #212121;\n  color: whitesmoke;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n  word-wrap: break-word; }\n\nbody {\n  background-color: #EEEEEE; }\n\n.divider-white {\n  width: 100%;\n  height: 1px;\n  background-color: whitesmoke; }\n", ""]);
 
 // exports
 
@@ -13737,8 +13764,8 @@ __webpack_require__(23)
 /* WEBPACK VAR INJECTION */(function($) {
 
 /**
-* Please consolidate all document ready and ajax stopfunctions here
-*/
+ * Please consolidate all document ready and ajax stopfunctions here
+ */
 
 var GlobalAjaxUpdate = __webpack_require__(2);
 var UI = __webpack_require__(3);
@@ -13757,27 +13784,32 @@ $(document).ready(function () {
         UI.authArea.update();
     });
     /**
-    *Initial Ajax Calls
-    */
+     *Initial Ajax Calls
+     */
     GlobalAjaxUpdate();
 });
 
 $(document).ajaxStop(function () {
     /**
-    * Attach boostrap styles to forms
-    */
+     * Attach boostrap styles to forms
+     */
     $("input, textarea, select").addClass("form-control");
     $("form:button").addClass("btn btn-primary");
 
     $("form").each(function () {
         $(this).find("button").addClass("btn btn-primary");
     });
-
     /**
-    * Update Reporta Mascota Form Area
-    */
+     * Update Reporta Mascota Form Area
+     */
     $("#reporta-header").click(function () {
         UI.reportaMascota.update();
+    });
+    /**
+     * Update Auth Area
+     */
+    $('.auth-area-toggle').click(function () {
+        UI.authArea.update();
     });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

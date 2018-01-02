@@ -7,7 +7,14 @@
 @import './lib/reporta-mascota.scss';
 @import './lib/loader.scss';
 @import './lib/feed.scss';
+@import './lib/usuario.scss';
 
 body{
     background-color: #EEEEEE;
+}
+
+.divider-white{
+    width: 100%;
+    height: 1px;
+    background-color: whitesmoke;
 }

@@ -2,6 +2,22 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import CustomUserCreationForm
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+
+
+def perfil(request):
+    return render(request, "registration/perfil.html")
+
+
+def usuario(request, user_id):
+    perfil = {}
+    if str(user_id) == "propio":
+        perfil = User.objects.filter(id=request.user.id).first()
+    else:
+        perfil = User.objects.filter(id=int(user_id)).first()
+    return render(request, "widgets/usuario.html", {
+        'perfil': perfil
+    })
 
 
 def registro(request):

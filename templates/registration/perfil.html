@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="content">
-    <input type="hidden" id="ajax-group" value="home">
+    <input type="hidden" id="ajax-group" value="perfil">
     {% if user.is_authenticated == False %}
         {% include 'widgets/auth-area.html' %}
     {% endif %}
-    <div class="ajax-node-mascota-form"></div>
-    <br>
-    <div id="ajax-node-feed"></div>
+    <div class="ajax-node-usuario-propio perfil-container"></div>
 </div>
 {% endblock %}

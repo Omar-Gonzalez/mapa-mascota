@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Telefono(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    numero = models.CharField(max_length=30, blank=True, null=True, default="")
+    numero = models.CharField(max_length=30)
 
     class Meta:
         verbose_name='Telefonos'

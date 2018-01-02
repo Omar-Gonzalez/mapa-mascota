@@ -1,11 +1,11 @@
 /**
-* Please consolidate all document ready and ajax stopfunctions here
-*/
+ * Please consolidate all document ready and ajax stopfunctions here
+ */
 
 const GlobalAjaxUpdate = require('./ajax-calls');
 const UI = require('./ui-scripts');
 
-$(document).ready(function(){
+$(document).ready(function() {
     /**
      * Update Sidebar 
      */
@@ -19,27 +19,31 @@ $(document).ready(function(){
         UI.authArea.update();
     });
     /**
-    *Initial Ajax Calls
-    */
+     *Initial Ajax Calls
+     */
     GlobalAjaxUpdate();
 });
 
-$(document).ajaxStop(function(){
+$(document).ajaxStop(function() {
     /**
-    * Attach boostrap styles to forms
-    */
+     * Attach boostrap styles to forms
+     */
     $("input, textarea, select").addClass("form-control");
     $("form:button").addClass("btn btn-primary");
 
-    $("form").each(function(){
+    $("form").each(function() {
         $(this).find("button").addClass("btn btn-primary");
     });
-
     /**
-    * Update Reporta Mascota Form Area
-    */
-    $("#reporta-header").click(function(){
+     * Update Reporta Mascota Form Area
+     */
+    $("#reporta-header").click(function() {
         UI.reportaMascota.update();
     });
-
+    /**
+     * Update Auth Area
+     */
+    $('.auth-area-toggle').click(function() {
+        UI.authArea.update();
+    });
 });
