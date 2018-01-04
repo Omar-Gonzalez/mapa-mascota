@@ -10,36 +10,12 @@ function GlobalAjaxUpdate() {
         });
 
         AJAX.html.replace({
-            url: "/login",
-            sel: ".ajax-node-login"
-        });
-
-        AJAX.html.replace({
-            url: "/registro",
-            sel: ".ajax-node-registro"
-        });
-
-        AJAX.html.replace({
-            url: "/v1/mascotas/form/reporta",
-            sel: ".ajax-node-mascota-form"
-        });
-
-        AJAX.html.replace({
             url: "/v1/usuario/propio",
             sel: ".ajax-node-usuario-propio"
         });
     }
 
-    if (group === "perfil") {
-        AJAX.html.replace({
-            url: "/login",
-            sel: ".ajax-node-login"
-        });
-
-        AJAX.html.replace({
-            url: "/registro",
-            sel: ".ajax-node-registro"
-        });
+    if (group === "perfil" || group === "reporta") {
 
         AJAX.html.replace({
             url: "/v1/usuario/propio",

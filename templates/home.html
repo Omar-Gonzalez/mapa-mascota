@@ -3,9 +3,14 @@
 <div class="content">
     <input type="hidden" id="ajax-group" value="home">
     {% if user.is_authenticated == False %}
-        {% include 'widgets/auth-area.html' %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2><a href="{% url 'perfil' %}">Entra o registrate para reportar una mascota</a></h2>
+                    </div>
+                </div>
+            </div>
     {% endif %}
-    <div class="ajax-node-mascota-form"></div>
     <br>
     <div id="ajax-node-feed"></div>
 </div>

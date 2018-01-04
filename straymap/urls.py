@@ -27,17 +27,15 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', mascotas_views.home, name='home'),
 
-    # Login y Registro
-    url(r'^login/$', auth_views.login, name='login'),
+    # App Perfiles
     url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^registro/$', perfiles_views.registro, name='registro'),
-    url(r'^auth-login/$', perfiles_views.auth_login, name='auth_login'),
-    url(r'^perfil/$', perfiles_views.perfil, name='perfil'),
+    url(r'^usuario/perfil/$', perfiles_views.perfil, name='perfil'),
+
+    # Mascotas
+    url(r'^mascotas/reporta$', mascotas_views.reporta_mascota, name='reporta'),
 
     # AJAX
     url(r'^v1/mascotas/feed/$', mascotas_views.feed, name='feed'),
-    url(r'^v1/mascotas/form/reporta/$',
-        mascotas_views.reporta_mascota, name='reporta_mascota'),
     url(r'^v1/usuario/(?P<user_id>[\w\-]+)/$',
         perfiles_views.usuario, name='usuario'),
 

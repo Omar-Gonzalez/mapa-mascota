@@ -1,3 +1,5 @@
+$theme-grey:#212121;
+
 .perfil-container{
     margin-left: 30px;
     margin-right: 30px;
@@ -5,7 +7,7 @@
 }
 
 .usuario{
-    background-color: $auth-area-header-bg;
+    background-color: $theme-grey;
     color:whitesmoke;
     padding-top: 20px;
     padding-bottom: 20px;

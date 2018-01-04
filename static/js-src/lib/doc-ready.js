@@ -22,9 +22,18 @@ $(document).ready(function() {
      *Initial Ajax Calls
      */
     GlobalAjaxUpdate();
-});
+    /**
+     *Django Forms errors wrappers 
+     */
 
-$(document).ajaxStop(function() {
+    $('.helptext').each(function(index,value){
+        if ($(value).text().length > 0){
+            $(value).wrap("<div class=\"alert alert-info\" role=\"alert\"></div>");
+        }
+    });
+    $('.errorlist').wrap("<div class=\"alert alert-danger\" role=\"alert\"></div>");
+    $('ul').not('[class]').wrap("<div class=\"alert alert-warning\" role=\"alert\"></div>");
+
     /**
      * Attach boostrap styles to forms
      */
@@ -34,16 +43,9 @@ $(document).ajaxStop(function() {
     $("form").each(function() {
         $(this).find("button").addClass("btn btn-primary");
     });
-    /**
-     * Update Reporta Mascota Form Area
-     */
-    $("#reporta-header").click(function() {
-        UI.reportaMascota.update();
-    });
-    /**
-     * Update Auth Area
-     */
-    $('.auth-area-toggle').click(function() {
-        UI.authArea.update();
-    });
+});
+
+$(document).ajaxStop(function() {
+
+
 });
