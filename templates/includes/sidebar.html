@@ -1,0 +1,21 @@
+<div id="sidebar">
+    <div class="sidebar-nav">
+        <span class="glyphicon glyphicon-menu-hamburger sb-toggle"></span>
+        <span class="glyphicon glyphicon-remove-circle sb-close"></span>
+        <hr>
+    </div>
+    <div class="sidebar-content">
+        <div class="logo"></div>
+        <ul class="sidebar-ul">
+            <li><h3 class="title"><a href="{% url 'home' %}">Proyecto EMA</a></h3></li>
+        </ul>
+        <br>
+        <div class="ajax-node-usuario-propio"></div>
+        <br>
+        <ul class="sidebar-ul">
+            <li><a href="{% url 'home' %}">Feed de mascotas</a></li>
+            <li><a href="{% url 'reporta' %}">Reporta una mascota</a></li>
+            <li><a href="{% url 'perfil' %}">Perfil de usuario</a></li>
+        </ul>
+    </div>
+</div>

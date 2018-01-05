@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    <input type="hidden" id="ajax-group" value="reporta">
     <div class="content">
         {% if user.is_authenticated %}
             <div class="container-fluid">
@@ -22,14 +21,7 @@
                 </div>
             </div>
         {% else %}
-            <!-- ... -->
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h2><a href="{% url 'perfil' %}">Entra o registrate para reportar una mascota</a></h2>
-                    </div>
-                </div>
-            </div>
+            {% include 'includes/reporta-banner.html' %}
         {% endif %}
     </div>
 {% endblock %}

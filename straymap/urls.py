@@ -29,14 +29,14 @@ urlpatterns = [
 
     # App Perfiles
     url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^usuario/perfil/$', perfiles_views.perfil, name='perfil'),
+    url(r'^usuario/perfil/(?:(?P<user_id>\d+)/)?$', perfiles_views.perfil, name='perfil'),
 
     # Mascotas
     url(r'^mascotas/reporta$', mascotas_views.reporta_mascota, name='reporta'),
 
     # AJAX
-    url(r'^v1/mascotas/feed/$', mascotas_views.feed, name='feed'),
-    url(r'^v1/usuario/(?P<user_id>[\w\-]+)/$',
+    url(r'^mascotas/feed/(?:user-(?P<user_id>\d+)/)?$', mascotas_views.feed, name='feed'),
+    url(r'^usuario/(?P<user_id>[\w\-]+)/$',
         perfiles_views.usuario, name='usuario'),
 
 ]

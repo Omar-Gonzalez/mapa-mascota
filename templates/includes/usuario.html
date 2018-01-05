@@ -1,0 +1,23 @@
+{% if user.is_authenticated %}
+    <div class="divider-white"></div>
+    <div class="container-fluid usuario">
+        <div class="row">
+            <p><img src="https://res.cloudinary.com/dlzzmbcfy/image/upload/c_scale,w_80/v1514853594/Portrait_Placeholder_venaxd.png"></p>
+        </div>
+        <h3>{{ perfil.username }}</h3>
+        <div class="row">
+            <a href="">{{ perfil.email }}</a>
+        </div>
+    </div>
+{% else %}
+    <div class="divider-white"></div>
+    <div class="container-fluid usuario">
+        <div class="row">
+            <p><img src="https://res.cloudinary.com/dlzzmbcfy/image/upload/c_scale,w_80/v1514853594/Portrait_Placeholder_venaxd.png"></p>
+            <p>Usuario Anonimo</p>
+        </div>
+        <div class="row">
+            <a class="auth-area-toggle" href="{% url 'perfil' %}">Entra o registrate para reportar una mascota o avistamiento</a>
+        </div>
+    </div>
+{% endif %}

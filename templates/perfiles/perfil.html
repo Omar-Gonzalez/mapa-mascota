@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="content">
-        <input type="hidden" id="ajax-group" value="perfil">
-        {% if user.is_authenticated == False %}
+        {% if query_user_id %}
+            <input type="hidden" id="ajax-query-value" value="{{ query_user_id }}">
+        {% endif %}
+        {% if user.is_authenticated %}
+            {% if query_user_id %}
+                <div class="ajax-node-usuario perfil-container"></div>
+                <div id="ajax-node-feed" data-query="user-{{ query_user_id }}"></div>
+            {% else %}
+                <div class="ajax-node-usuario-propio perfil-container"></div>
+                <div id="ajax-node-feed" data-query="user-{{ request.user.id }}"></div>
+            {% endif %}
+        {% else %}
+            <!--Auth Area-->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
                         <h2>¿Ya tienes cuenta? Entra aqui:</h2>
                         <div class="divider-grey"></div>
-                        <br>                
+                        <br>
                         <form method="post">
                             {% csrf_token %}
                             {{ loginForm.as_p }}
@@ -27,8 +38,7 @@
                     </div>
                 </div>
             </div>
-        {% else %}
-            <div class="ajax-node-usuario-propio perfil-container"></div>
+            <!-- /Auth Area -->
         {% endif %}
     </div>
 {% endblock %}

@@ -6,7 +6,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
 
-def perfil(request):
+def perfil(request, user_id):
+    if user_id is not None and request.user.is_authenticated():
+        return render(request, "perfiles/perfil.html", {
+            'query_user_id': user_id
+        })
+
     registroForm = CustomUserCreationForm()
     loginForm = AuthenticationForm()
 
@@ -42,6 +47,6 @@ def usuario(request, user_id):
         perfil = User.objects.filter(id=request.user.id).first()
     else:
         perfil = User.objects.filter(id=int(user_id)).first()
-    return render(request, "widgets/usuario.html", {
+    return render(request, "includes/usuario.html", {
         'perfil': perfil
     })

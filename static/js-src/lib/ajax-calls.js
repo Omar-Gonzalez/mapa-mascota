@@ -1,25 +1,43 @@
 const AJAX = require('./ajax-helpers');
 
 function GlobalAjaxUpdate() {
-    let group = $("#ajax-group").val();
+    /**
+     * Feed de Mascotas Calls:
+     */
 
-    if (group === "home") {
+    if ($('#ajax-node-feed').length > 0) {
+        let query = $('#ajax-node-feed').attr('data-query');
+        let url = "";
+
+        if(query){
+            url = "/mascotas/feed/" + query;
+        }else{
+            url = "/mascotas/feed";
+        }
+
         AJAX.html.replace({
-            url: "/v1/mascotas/feed",
+            url: url,
             sel: "#ajax-node-feed"
         });
+    }
 
+    /**
+     * User widget related calls:
+     */
+
+    if ($('.ajax-node-usuario-propio').length > 0) {
         AJAX.html.replace({
-            url: "/v1/usuario/propio",
+            url: "/usuario/propio",
             sel: ".ajax-node-usuario-propio"
         });
     }
 
-    if (group === "perfil" || group === "reporta") {
+    if ($('.ajax-node-usuario').length > 0) {
+        let value = $("#ajax-query-value").val();
 
         AJAX.html.replace({
-            url: "/v1/usuario/propio",
-            sel: ".ajax-node-usuario-propio"
+            url: "/usuario/" + value,
+            sel: ".ajax-node-usuario"
         });
     }
 }
