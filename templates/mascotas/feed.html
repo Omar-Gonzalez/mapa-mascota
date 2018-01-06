@@ -1,0 +1,10 @@
+<div class="container-fluid feed">
+    {% if user_feed_name %}
+        {% include 'includes/tus-mascotas-banner.html' %}
+    {% endif %}
+    {% for mascota in mascotas %}
+        <div class="row">
+            {% include 'mascotas/mascota.html' %}
+        </div>
+    {% endfor %}
+</div>

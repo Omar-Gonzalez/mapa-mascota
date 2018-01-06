@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'mascotas',
-    'perfiles'
+    'perfiles',
+    'avistamientos'
 ]
 
 MIDDLEWARE = [

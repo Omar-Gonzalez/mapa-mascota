@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^mascotas/reporta$', mascotas_views.reporta_mascota, name='reporta'),
 
     # AJAX
-    url(r'^mascotas/feed/(?:user-(?P<user_id>\d+)/)?$', mascotas_views.feed, name='feed'),
+    url(r'^mascotas/feed/(?:user-(?P<user_id>\d+)/)?(?:mascota-(?P<mascota_id>\d+)/)?$', mascotas_views.feed, name='feed'),
     url(r'^usuario/(?P<user_id>[\w\-]+)/$',
         perfiles_views.usuario, name='usuario'),
 

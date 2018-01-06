@@ -8,18 +8,24 @@ def home(request):
     return render(request, 'mascotas/home.html')
 
 
-def feed(request, user_id):
+def feed(request, user_id, mascota_id):
     if user_id is not None:
         query_user = User.objects.filter(id=user_id).first()
         mascotas = Mascota.objects.filter(
             user=user_id).all().order_by('-id')[:50]
-        return render(request, 'includes/feed.html', {
+        return render(request, 'mascotas/feed.html', {
             'mascotas': mascotas,
             'user_feed_name': query_user.username
         })
 
+    if mascota_id is not None:
+        mascota = Mascota.objects.filter(id=mascota_id).first()
+        return render(request, 'mascotas/mascota-detalle.html', {
+            'mascota': mascota
+        })
+
     mascotas = Mascota.objects.all().order_by('-id')[:50]
-    return render(request, 'includes/feed.html', {
+    return render(request, 'mascotas/feed.html', {
         'mascotas': mascotas
     })
 

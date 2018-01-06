@@ -1,8 +1,39 @@
-//Dependencies
-import 'bootstrap';
+/**
+* Dependencies
+*/
+//import 'bootstrap'; not yet used 
 
-//Custom Scripts
-import './lib/ajax-helpers.js';
-import './lib/ajax-calls.js';
-import './lib/ui-scripts.js';
-import './lib/doc-ready.js';
+/**
+* Required Modules
+*/
+
+const GlobalAjaxUpdate = require('./lib/ajax-calls');
+const UI = require('./lib/ui-scripts');
+const ApplyDjangoSpecificStyles = require('./lib/django-styles.js');
+
+/**
+* Consolidate Event Listeners Here 
+*/
+
+$(document).ready(function() {
+    /**
+     * Update Sidebar 
+     */
+    $('.sb-toggle, .sb-close').click(function() {
+        UI.sb.update();
+    });
+    /**
+     * Update Auth Area
+     */
+    $('#auth-header').click(function() {
+        UI.authArea.update();
+    });
+    /**
+     * Ajax Update 
+     */
+    GlobalAjaxUpdate();
+    /**
+     * Django Styles
+     */
+    ApplyDjangoSpecificStyles();
+});

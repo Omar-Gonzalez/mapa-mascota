@@ -2,41 +2,38 @@ const AJAX = require('./ajax-helpers');
 
 function GlobalAjaxUpdate() {
     /**
-     * Feed de Mascotas Calls:
-     */
+    * Build Feed Query with data attributes
+    */
 
-    if ($('#ajax-node-feed').length > 0) {
-        let query = $('#ajax-node-feed').attr('data-query');
-        let url = "";
-
-        if(query){
-            url = "/mascotas/feed/" + query;
-        }else{
-            url = "/mascotas/feed";
-        }
-
-        AJAX.html.replace({
-            url: url,
-            sel: "#ajax-node-feed"
-        });
+    let query = $('#ajax-node-feed').attr('data-query');
+    let feedUrl = "";
+    if (query) {
+        feedUrl = "/mascotas/feed/" + query;
+    } else {
+        feedUrl = "/mascotas/feed";
     }
+
+    /**
+    * Feed Call 
+    */
+
+    AJAX.html.replace({
+        url: feedUrl,
+        sel: "#ajax-node-feed"
+    });
 
     /**
      * User widget related calls:
      */
 
-    if ($('.ajax-node-usuario-propio').length > 0) {
-        AJAX.html.replace({
-            url: "/usuario/propio",
-            sel: ".ajax-node-usuario-propio"
-        });
-    }
+    AJAX.html.replace({
+        url: "/usuario/propio",
+        sel: ".ajax-node-usuario-propio"
+    });
 
-    if ($('.ajax-node-usuario').length > 0) {
-        let value = $("#ajax-query-value").val();
-
+    if ($("#ajax-query-value").val() !== undefined) {
         AJAX.html.replace({
-            url: "/usuario/" + value,
+            url: "/usuario/" + $("#ajax-query-value").val(),
             sel: ".ajax-node-usuario"
         });
     }
