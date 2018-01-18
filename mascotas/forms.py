@@ -4,7 +4,7 @@ from .models import Mascota
 
 class MascotaForm(ModelForm):
 
-    class Meta():
+    class Meta:
         model = Mascota
         exclude = ['creado', 'user']
 

@@ -1,18 +1,45 @@
-<div class="mascota">
-    <div class="col-md-2 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-        <br>
-        <img src="https://res.cloudinary.com/dlzzmbcfy/image/upload/c_scale,w_170/v1514611369/pet_j7w4ev.png">
-    </div>
-    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-        <h3>
-        <a href="{% url 'feed' mascota.id %}">{{ mascota.nombre }}</a>
-        <mark class="grey-mark">reportado por</mark>
-        <a href="{% url 'perfil' mascota.user.id %}">{{ mascota.user }}</a>
-        </h3>
-        <hr>
-        <p><mark>{{ mascota.especie }}</mark> de <mark>{{ mascota.edad_años }}</mark> años de edad, del genero <mark>{{ mascota.genero }}</mark></p>
-        <p>De raza <mark>{{ mascota.raza }}</mark> y color <mark>{{  mascota.color }}</mark></p>
-        <hr>
-        <p><mark>Señas:</mark> {{ mascota.señas }}</p>
+<div class="row">
+    <div class="mascota">
+        <div class="col-md-2 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            <br>
+            <img src="https://res.cloudinary.com/dlzzmbcfy/image/upload/c_scale,w_170/v1514611369/pet_j7w4ev.png">
+        </div>
+        <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            <h3>
+                <a href="{% url 'feed' mascota.id %}">{{ mascota.nombre }}</a>
+                <mark class="grey-mark">reportado por</mark>
+                <a href="{% url 'perfil' mascota.user.id %}">{{ mascota.user }}</a>
+            </h3>
+            <hr>
+            <p>
+                <mark>{{ mascota.especie }}</mark>
+                de
+                <mark>{{ mascota.edad_años }}</mark>
+                años de edad, del genero
+                <mark>{{ mascota.genero }}</mark>
+            </p>
+            <p>De raza
+                <mark>{{ mascota.raza }}</mark>
+                y color
+                <mark>{{ mascota.color }}</mark>
+            </p>
+            <hr>
+            <p>
+                <mark>Señas:</mark>
+                {{ mascota.señas }}</p>
+            <hr>
+            {% if "mascota-" in request.path %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ avistamientoForm.as_p }}
+                    <button type="submit">Reporta Avistamiento</button>
+                </form>
+            {% else %}
+                <button class="btn btn-primary" onclick="window.location.href='{% url 'feed' mascota.id %}'">
+                    <span class="glyphicon glyphicon-map-marker"></span> ¿Has visto o estas en posecion de esta mascota?
+                    Reporta un avistamiento
+                </button>
+            {% endif %}
+        </div>
     </div>
 </div>

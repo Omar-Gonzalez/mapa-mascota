@@ -1,0 +1,9 @@
+{% for avistamiento in avistamientos %}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p>{{ avistamiento.mascota }}</p>
+            <p>{{ avistamiento.direccion }}</p>
+            <p>{{ avistamiento.observaciones }}</p>
+        </div>
+    </div>
+{% endfor %}

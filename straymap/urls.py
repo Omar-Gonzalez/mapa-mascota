@@ -19,9 +19,7 @@ from django.contrib.auth import views as auth_views
 from perfiles import views as perfiles_views
 from mascotas import views as mascotas_views
 
-
 admin.site.site_header = 'Proyecto EMA'
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,7 +33,8 @@ urlpatterns = [
     url(r'^mascotas/reporta$', mascotas_views.reporta_mascota, name='reporta'),
 
     # AJAX
-    url(r'^mascotas/feed/(?:user-(?P<user_id>\d+)/)?(?:mascota-(?P<mascota_id>\d+)/)?$', mascotas_views.feed, name='feed'),
+    url(r'^mascotas/feed/(?:user-(?P<user_id>\d+)/)?(?:mascota-(?P<mascota_id>\d+)/)?$', mascotas_views.feed,
+        name='feed'),
     url(r'^usuario/(?P<user_id>[\w\-]+)/$',
         perfiles_views.usuario, name='usuario'),
 

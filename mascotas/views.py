@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Mascota
+from avistamientos.forms import AvistamientoForm
+from avistamientos.models import Avistamiento
 from .forms import MascotaForm
 from django.contrib.auth.models import User
 
@@ -19,9 +21,17 @@ def feed(request, user_id, mascota_id):
         })
 
     if mascota_id is not None:
+        avistamientoForm = AvistamientoForm()
+        if request.method == 'POST':
+            avistamientoForm = AvistamientoForm(request.POST)
+            if avistamientoForm.is_valid():
+                avistamientoForm.save()
         mascota = Mascota.objects.filter(id=mascota_id).first()
+        avistamientos = Avistamiento.objects.filter(user=request.user).all()
         return render(request, 'mascotas/mascota-detalle.html', {
-            'mascota': mascota
+            'mascota': mascota,
+            'avistamientoForm': avistamientoForm,
+            'avistamientos': avistamientos
         })
 
     mascotas = Mascota.objects.all().order_by('-id')[:50]

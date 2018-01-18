@@ -1,3 +1,3 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
+from .forms import AvistamientoForm
 
-# Create your views here.

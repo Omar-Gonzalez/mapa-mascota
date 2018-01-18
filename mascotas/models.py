@@ -113,4 +113,4 @@ class Mascota(models.Model):
         verbose_name_plural = "Feed de Mascotas"
 
     def __str__(self):
-        return self.user.username
+        return self.nombre + ' - ' + self.user.username
