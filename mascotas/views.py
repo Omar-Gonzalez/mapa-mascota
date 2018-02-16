@@ -11,6 +11,7 @@ def home(request):
 
 
 def feed(request, user_id, mascota_id):
+
     if user_id is not None:
         query_user = User.objects.filter(id=user_id).first()
         mascotas = Mascota.objects.filter(
@@ -21,6 +22,8 @@ def feed(request, user_id, mascota_id):
         })
 
     if mascota_id is not None:
+        if request.user.is_anonymous:
+            return redirect('perfil')
         avistamientoForm = AvistamientoForm()
         if request.method == 'POST':
             avistamientoForm = AvistamientoForm(request.POST)
@@ -41,6 +44,9 @@ def feed(request, user_id, mascota_id):
 
 
 def reporta_mascota(request):
+    if request.user.is_anonymous:
+        return redirect('perfil')
+
     form = MascotaForm(request.user)
     if request.method == "POST":
         form = MascotaForm(request.user, request.POST)

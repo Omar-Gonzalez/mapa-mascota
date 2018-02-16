@@ -1,4 +1,4 @@
-# Stray Map 
+# Mapa Mascota
 
 ![logo](https://github.com/Omar-Gonzalez/straymap/blob/master/straymap/static/img/logos/logo-solid-w200.png)
 
